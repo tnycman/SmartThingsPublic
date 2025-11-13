@@ -1,0 +1,36 @@
+{
+  "name": "klarna-clone-mvp",
+  "version": "1.0.0",
+  "description": "MVP implementation of a Buy Now, Pay Later (BNPL) platform",
+  "private": true,
+  "workspaces": [
+    "backend",
+    "frontend/consumer",
+    "frontend/merchant"
+  ],
+  "scripts": {
+    "dev": "concurrently \"npm run dev:backend\" \"npm run dev:consumer\" \"npm run dev:merchant\"",
+    "dev:backend": "cd backend && npm run dev",
+    "dev:consumer": "cd frontend/consumer && npm run dev",
+    "dev:merchant": "cd frontend/merchant && npm run dev",
+    "build": "npm run build:backend && npm run build:consumer && npm run build:merchant",
+    "build:backend": "cd backend && npm run build",
+    "build:consumer": "cd frontend/consumer && npm run build",
+    "build:merchant": "cd frontend/merchant && npm run build",
+    "docker:up": "docker-compose up -d",
+    "docker:down": "docker-compose down",
+    "db:migrate": "cd backend && npm run db:migrate",
+    "db:seed": "cd backend && npm run db:seed"
+  },
+  "keywords": [
+    "bnpl",
+    "fintech",
+    "klarna",
+    "payment"
+  ],
+  "author": "Klarna Clone Team",
+  "license": "MIT",
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
